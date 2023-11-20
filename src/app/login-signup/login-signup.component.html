@@ -1,0 +1,28 @@
+<div [@fade]>
+  <h2 mat-dialog-title>Login/Signup</h2>
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="username">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="password" type="password">
+    </mat-form-field>
+    <mat-form-field *ngIf="isSignup">
+      <mat-label>First Name</mat-label>
+      <input matInput [(ngModel)]="firstName">
+    </mat-form-field>
+    <mat-form-field *ngIf="isSignup">
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="lastName">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button (click)="login()" *ngIf="!isSignup">Login</button>
+    <button mat-button (click)="signup()" *ngIf="isSignup">Signup</button>
+    <button mat-button (click)="isSignup = !isSignup">{{isSignup ? 'Back to Login' : 'Go to Signup'}}</button>
+  </mat-dialog-actions>
+</div>
+
